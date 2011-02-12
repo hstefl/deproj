@@ -1,0 +1,7 @@
+USAGE
+ - copy files into your eclipse workspace
+ - make sure that dile is executeable
+ - run deproj.sh for help
+ 
+TODO
+ - make this like druhs commands
