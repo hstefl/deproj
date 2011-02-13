@@ -1,7 +1,45 @@
+DESCRIPTION
+Deproj (DEploy PROJect) is pack of bash scripts for easier deployment Drupal modules and themes to servers (dev, beta, production).
+  
+OPERATIONS
+ 1. create-update-script
+  - For usage on localhost.
+  - Just create file update-VERSION.sh script with predefined code, where VERSION is actual version of Drupal module or theme.
+  - This script you will run manually on all servers (dev, beta, production), you can modify pregenerated code as you need.
+  - For detailed instruction see help (run deproj.sh withount parametres). 
+ 2. create-pack
+  - For usage on localhost.
+  - This operation create .tgz pack like PROJECT_NAME-VERSION.tgz.
+  - You can upload this package to feature server.
+  - For detailed instruction see help (run deproj.sh withount parametres). 
+ 3. prepare-version
+  - For usage on localhost.
+  - Operation actualize version tag in the .info file and create new git tag.
+  - Adds this change to git.
+  - For detailed instruction see help (run deproj.sh withount parametres).  
+
 USAGE
  - copy files into your eclipse workspace
  - make sure that dile is executeable
  - run deproj.sh for help
+ REAL LIFE EXAMPLE
+  - I have copied all deproj codes in the root of eclipse workspace.
+  1. I just finished version and I want to deploy it.
+   - First I create script update-VERSION.sh
+   - Run deproj.sh cup project_name. Project_name means Eclipse project.
+   - Now I update generated scripts (created in the project_name/updates/update-VERSION.sh). 
+     Usually I don't have much work with that, becouse I usually have all project's modules in one directory 
+     (for instance like ubercart).
+   - Now I commit and push this changes.
+  2. I have finalized version and I want save archived version release to the feature server.
+   - Run deproj.sh cup project_name.
+   - Pack is created in a root of workspace and you can upload it on a feature server 
+     Previosly generated scritp will download data from this source.
+  2.1 Now I go into dev, beta servers and run created update scripts there.
+   - Do some testing and if is everyting OK, than run script on production server. 
+  3. Now project is deployed, we need start new version
+   - run deproj.sh pv NEW_VER
+   - New version started.
  
 TODO
- - make this like druhs commands
+ - make this like drush commands
