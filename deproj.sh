@@ -17,6 +17,9 @@ then
   exit
 fi
 
+#
+#OPERATION create-update-script
+#
 if [ $1 == 'create-update-script' ] || [ $1 == 'cup' ]
 then
   if [ $# -lt 2 ]
@@ -45,7 +48,7 @@ then
     mkdir "$proj/updates"
   fi 
   
-  #Unlink exists script
+  #Unlink existing script
   file_name="$proj/updates/update-$ver.sh"
   if [ -r $file_name ]
   then
@@ -68,6 +71,9 @@ then
   eval $upd_scr4
 fi
 
+#
+#OPERATION create-pack
+#
 if [ $1 == 'create-pack' ] || [ $1 == 'cp' ]
 then
   if [ $# -lt 2 ]
@@ -88,7 +94,9 @@ then
   eval $compress
 fi
  
-
+#
+#OPERATION prepare-version
+#
 if [ $1 == 'prepare-version' ] || [ $1 == 'pv' ]
 then
   if [ $# -lt 3 ]
@@ -108,8 +116,6 @@ then
   ver=$3
   #Project name
   proj=$2
-
-  
 
   #Set new version into .info
   set_version="php info_set_version.php $proj/$proj.info $ver"
@@ -132,7 +138,6 @@ then
   #git_push="git push $branches --tags"
   #echo $git_push
   #eval $git_push
-  
   
   cd ..
 fi
