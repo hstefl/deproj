@@ -39,15 +39,20 @@ then
   obtain_version="php info_get_version.php $proj/$proj.info"
   ver=`eval $obtain_version`
   
+  #Create directory if not exists
+  if [ ! -d "$proj/updates" ] 
+  then
+    mkdir "$proj/updates"
+  fi 
+  
   #Unlink exists script
-  file_name="$proj/update-$ver.sh"
+  file_name="$proj/updates/update-$ver.sh"
   if [ -r $file_name ]
   then
     unlink_script="unlink $file_name"
     eval $unlink_script
   fi
   
-  #Create update script
   line1="\#!/bin/bash"
   line2="rm -r $path_on_server/$proj"
   line3="drush dl $proj-$ver --destination=$path_on_server --source=http://fserver.rwcms.cz/fserver"
