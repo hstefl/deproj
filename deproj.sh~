@@ -17,7 +17,7 @@ then
   exit
 fi
 
-# UPDATED in devel branch
+#
 #OPERATION create-update-script
 #
 if [ $1 == 'create-update-script' ] || [ $1 == 'cup' ]
