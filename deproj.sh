@@ -18,6 +18,7 @@ then
 fi
 
 # UPDATED in devel branch
+# UPDATED in slave branch
 #OPERATION create-update-script
 #
 if [ $1 == 'create-update-script' ] || [ $1 == 'cup' ]
