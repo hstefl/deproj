@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#test slave
 deproj_help() {
   echo "RUN deproj.sh op"
   echo "op  - Operations"
